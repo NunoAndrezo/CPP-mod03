@@ -1,28 +1,47 @@
 #include "../inc/ClapTrap.hpp"
 #include "../inc/ScavTrap.hpp"
+#include "../inc/FragTrap.hpp"   // you called it FlagTrap but the exercise requires "FragTrap"
 
-int	main(void)
+int main()
 {
-	ClapTrap	bot1("Banana");
-	ClapTrap	bot2("Monkey");
-	ScavTrap	bot4("Maximillion Pegasus");
-	ScavTrap	bot3("Seto Kaiba");
+	std::cout << "\n========== TEST 1: BASIC CONSTRUCTION ==========\n";
+	ClapTrap a("CLAPPY");
+	ScavTrap b("SCAVVY");
+	FragTrap c("FRAGGY");
 
-	bot1.attack(bot2.getName());
-	bot2.takeDamage(20);
-	bot2.beRepaired(1);
+	std::cout << "\n========== TEST 2: COPY CONSTRUCTOR ==========\n";
+	ClapTrap a_copy(a);
+	ScavTrap b_copy(b);
+	FragTrap c_copy(c);
 
-	bot1.attack(bot2.getName());
-	bot2.attack(bot1.getName());
-	
-	bot3.attack(bot4.getName());
-	bot4.takeDamage(20);
-	bot4.beRepaired(1);
+	std::cout << "\n========== TEST 3: COPY ASSIGNMENT ==========\n";
+	ClapTrap a_assign;
+	ScavTrap b_assign;
+	FragTrap c_assign;
 
-	bot4.guardGate();
-	bot3.attack(bot4.getName());
-	bot4.attack(bot3.getName());
+	a_assign = a;
+	b_assign = b;
+	c_assign = c;
 
-	// a construcao / destrucao e feota por chao e depois paredes, 
-	return (0);
+	std::cout << "\n========== TEST 4: ATTACK / DAMAGE / REPAIR ==========\n";
+	a.attack("Dummy");
+	b.attack("Dummy");
+	c.attack("Dummy");
+
+	a.takeDamage(5);
+	b.takeDamage(20);
+	c.takeDamage(30);
+
+	a.beRepaired(3);
+	b.beRepaired(10);
+	c.beRepaired(15);
+
+	std::cout << "\n========== TEST 5: SPECIAL ABILITIES ==========\n";
+	b.guardGate();     // ScavTrap special ability
+	c.highFivesGuys(); // FragTrap special ability
+
+	std::cout << "\n========== TEST 6: CHAIN DESTRUCTION ==========\n";
+	// end of scope → destructors will run in correct order
+
+	return 0;
 }

@@ -6,15 +6,15 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		std::string		name;
 		unsigned int	hit_points;
 		unsigned int	energy_points;
 		unsigned int	attack_damage;
 	public:
 		ClapTrap(void);
-		ClapTrap(const ClapTrap &other);
-		ClapTrap &operator=(const ClapTrap &other);
+		ClapTrap(ClapTrap const &other);
+		ClapTrap &operator=(ClapTrap const &other);
 		ClapTrap(std::string name);	// needs to print a message to show it was called
 		~ClapTrap(void);	// needs to print a message to show it was called
 		

@@ -1,20 +1,16 @@
 #ifndef SCAVTRAP_HPP
 #define SCAVTRAP_HPP
 
+#include "../inc/ClapTrap.hpp"
 #include <iostream>
 #include <string>
 
-class ScavTrap
+class ScavTrap : public ClapTrap
 {
-	private:
-		std::string		name;
-		unsigned int	hit_points;
-		unsigned int	energy_points;
-		unsigned int	attack_damage;
 	public:
 		ScavTrap(void);
-		ScavTrap(const ScavTrap &other);
-		ScavTrap &operator=(const ScavTrap &other);
+		ScavTrap(ScavTrap const &other);
+		ScavTrap &operator=(ScavTrap const &other);
 		ScavTrap(std::string name);	// needs to print a message to show it was called
 		~ScavTrap(void);	// needs to print a message to show it was called
 		

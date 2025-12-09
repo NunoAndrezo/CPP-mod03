@@ -19,7 +19,7 @@ UP			=	\033[A
 CUT			=	\033[K
 
 #source files
-SRC_FILES	=	main.cpp ClapTrap.cpp ScavTrap.cpp FlagTrap.cpp
+SRC_FILES	=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 OBJ_FILES	=	$(SRC_FILES:.cpp=.o)
 

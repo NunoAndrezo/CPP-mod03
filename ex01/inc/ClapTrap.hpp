@@ -4,21 +4,22 @@
 #include <iostream>
 #include <string>
 
+
 class ClapTrap
 {
-	private:
-		std::string		name;
-		unsigned int	hit_points;
-		unsigned int	energy_points;
-		unsigned int	attack_damage;
+	protected:
+		std::string	name;
+		int	hit_points;
+		int	energy_points;
+		int	attack_damage;
 	public:
 		ClapTrap(void);
-		ClapTrap(const ClapTrap &other);
-		ClapTrap &operator=(const ClapTrap &other);
 		ClapTrap(std::string name);	// needs to print a message to show it was called
-		~ClapTrap(void);	// needs to print a message to show it was called
-		
-		void attack(const std::string &target); // cost 1 energy
+		ClapTrap(ClapTrap const  &other);
+		ClapTrap &operator=(ClapTrap const &other);
+		virtual ~ClapTrap(void);	// needs to print a message to show it was called
+
+		virtual void attack(const std::string &target); // cost 1 energy
 		void beRepaired(unsigned int amount);
 		void takeDamage(unsigned int amount); // cost 1 energy
 		// all these functions need to print a message (ex: attack): ClapTrap <Name> attacks <target>, causing <damage> points of damage!

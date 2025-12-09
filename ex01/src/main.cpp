@@ -3,25 +3,34 @@
 
 int	main(void)
 {
-	ClapTrap	bot1("Banana");
-	ClapTrap	bot2("Monkey");
-	ScavTrap	bot4("Maximillion Pegasus");
-	ScavTrap	bot3("Seto Kaiba");
+	ClapTrap	bot1_ClapTrap("Clapping Banana");
+	ClapTrap	bot2_ClapTrap("Clapping Monkey");
+	ScavTrap	bot4_ScavTrap("Scav Maximillion Pegasus");
+	ScavTrap	bot3_ScavTrap("Scav Seto Kaiba");
 
-	bot1.attack(bot2.getName());
-	bot2.takeDamage(20);
-	bot2.beRepaired(1);
+	bot1_ClapTrap.attack(bot2_ClapTrap.getName());
 
-	bot1.attack(bot2.getName());
-	bot2.attack(bot1.getName());
+	std::cout << "\n @@ Taking Damage starts! @@\n";
+	for (int i = 0; i < 5; i++)
+	{
+		bot2_ClapTrap.takeDamage(20);
+	}
+	bot2_ClapTrap.beRepaired(1);
+
+	bot1_ClapTrap.attack(bot2_ClapTrap.getName());
+	bot2_ClapTrap.attack(bot1_ClapTrap.getName());
 	
-	bot3.attack(bot4.getName());
-	bot4.takeDamage(20);
-	bot4.beRepaired(1);
+	bot3_ScavTrap.attack(bot4_ScavTrap.getName());
+	std::cout << "\n @@ Taking Damage starts! @@\n";
+	for (int i = 0; i < 5; i++)
+	{
+		bot4_ScavTrap.takeDamage(20);
+	}	
+	bot4_ScavTrap.beRepaired(1); 
 
-	bot4.guardGate();
-	bot3.attack(bot4.getName());
-	bot4.attack(bot3.getName());
+	bot4_ScavTrap.guardGate();
+	bot3_ScavTrap.attack(bot4_ScavTrap.getName());
+	bot4_ScavTrap.attack(bot3_ScavTrap.getName());
 
 	// a construcao / destrucao e feota por chao e depois paredes, 
 	return (0);
